@@ -19,7 +19,7 @@ public class RecyclerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler);
-        initFruits();
+        initFruits(15);
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
@@ -27,14 +27,11 @@ public class RecyclerActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
     }
 
-    private void initFruits() {
-        dataList.add(new Data("title1", "desp1", 1));
-        dataList.add(new Data("title2", "desp2", 2));
-        dataList.add(new Data("title3", "desp3", 3));
-        dataList.add(new Data("title4", "desp4", 4));
-        dataList.add(new Data("title5", "desp5", 5));
-
-
+    private void initFruits(int size) {
+        for(int i=0;i<size;i++){
+            int number = i+1;
+            dataList.add(new Data(String.format("title%d",number),String.format("desp%d",number),number));
+        }
     }
 
 }
