@@ -11,4 +11,15 @@ public class Data {
         this.number = number;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public int getNumber() {
+        return number;
+    }
 }
