@@ -5,7 +5,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -27,12 +26,12 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
 
     }
 
-    class headerViewHolder extends RecyclerView.ViewHolder{
+    class headerViewHolder extends RecyclerView.ViewHolder {
         TextView headerTitle;
 
-        public headerViewHolder( View view) {
+        public headerViewHolder(View view) {
             super(view);
-            headerTitle = view.findViewById(R.id.header_title)
+            headerTitle = view.findViewById(R.id.header_title);
         }
     }
 
