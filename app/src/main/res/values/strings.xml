@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">zmc_recycler_view</string>
+    <string name="recyclerview_entry">RecyclerView</string>
 </resources>
