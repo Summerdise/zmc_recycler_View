@@ -5,14 +5,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
+public class DataAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private List<Data> mDataList;
 
-    class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView dataTitle;
         TextView dataNumber;
         TextView dataDescription;
@@ -26,12 +27,12 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
 
     }
 
-    class headerViewHolder extends RecyclerView.ViewHolder {
+    public static class HeaderViewHolder extends RecyclerView.ViewHolder {
         TextView headerTitle;
 
-        public headerViewHolder(View view) {
+        public HeaderViewHolder(View view) {
             super(view);
-            headerTitle = view.findViewById(R.id.header_title);
+            headerTitle = view.findViewById(R.id.headerTitle);
         }
     }
 
@@ -41,17 +42,27 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.data_item, parent, false);
-        ViewHolder holder = new ViewHolder(view);
-        return holder;
+        View view;
+        if(viewType==Data.TYPE_ITEM){
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.data_item, parent, false);
+        }else{
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.header_item, parent, false);
+        }
+        return new ViewHolder(view);
     }
 
+
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         Data data = mDataList.get(position);
-        holder.dataTitle.setText(data.getTitle());
-        holder.dataNumber.setText(String.valueOf(data.getNumber()));
-        holder.dataDescription.setText(data.getDescription());
+        if(data.type==Data.TYPE_HEADER){
+            ((HeaderViewHolder)holder).headerTitle.setText(data.getTitle());
+        }else{
+            ((ViewHolder)holder).dataTitle.setText(data.getTitle());
+            ((ViewHolder)holder).dataNumber.setText(String.valueOf(data.getNumber()));
+            ((ViewHolder)holder).dataDescription.setText(data.getDescription());
+        }
+
     }
 
     @Override
