@@ -1,5 +1,6 @@
 package com.example.zmc_recycler_view;
 
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +36,7 @@ public class DataAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             headerTitle = view.findViewById(R.id.header_title);
         }
     }
+
     public static class ImageViewHolder extends RecyclerView.ViewHolder {
         TextView dataTitle;
         TextView dataNumber;
@@ -61,8 +63,11 @@ public class DataAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         if (viewType == Data.TYPE_ITEM) {
             view = LayoutInflater.from(parent.getContext()).inflate(R.layout.data_item, parent, false);
             return new ItemHolder(view);
-        } else {
+        } else if(viewType == Data.TYPE_HEADER){
             view = LayoutInflater.from(parent.getContext()).inflate(R.layout.header_item, parent, false);
+            return new HeaderViewHolder(view);
+        } else {
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.image_item, parent, false);
             return new HeaderViewHolder(view);
         }
     }
@@ -73,7 +78,11 @@ public class DataAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         if (0 == mDataList.get(position).type) {
             return Data.TYPE_ITEM;
         } else if (1 == mDataList.get(position).type) {
-            return Data.TYPE_HEADER;
+            if (null == mDataList.get(position).avatar) {
+                return Data.TYPE_HEADER;
+            } else {
+                return 2;
+            }
         } else {
             return -1;
         }
@@ -84,10 +93,15 @@ public class DataAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         Data data = mDataList.get(position);
         if (data.type == Data.TYPE_HEADER) {
             ((HeaderViewHolder) holder).headerTitle.setText(data.title);
-        } else {
+        } else if(data.type == Data.TYPE_ITEM){
             ((ItemHolder) holder).dataTitle.setText(data.title);
             ((ItemHolder) holder).dataNumber.setText(String.valueOf(data.number));
             ((ItemHolder) holder).dataDescription.setText(data.description);
+        } else if (2==data.type){
+            ((ImageViewHolder) holder).dataAvatar.setImageURI(Uri.parse(data.avatar));
+            ((ImageViewHolder) holder).dataTitle.setText(data.title);
+            ((ImageViewHolder) holder).dataNumber.setText(String.valueOf(data.number));
+            ((ImageViewHolder) holder).dataDescription.setText(data.description);
         }
     }
 

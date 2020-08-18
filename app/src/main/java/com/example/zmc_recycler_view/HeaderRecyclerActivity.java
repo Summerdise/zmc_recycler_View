@@ -25,10 +25,10 @@ public class HeaderRecyclerActivity extends AppCompatActivity {
     }
 
     private void initFruits(int size) {
-        dataList.add(new Data(1, "This is header", null, 0));
+        dataList.add(new Data(1, "This is header", null, 0,null));
         for (int i = 0; i < size; i++) {
             int number = i + 1;
-            dataList.add(new Data(0, String.format("title%d", number), String.format("desp%d", number), number));
+            dataList.add(new Data(0, String.format("title%d", number), String.format("desp%d", number), number,null));
         }
     }
 }
