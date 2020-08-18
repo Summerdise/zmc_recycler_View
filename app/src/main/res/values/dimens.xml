@@ -10,4 +10,7 @@
     <dimen name="data_item_total_height">100dp</dimen>
     <dimen name="data_item_total_margin">10dp</dimen>
     <dimen name="data_item_head_height">40dp</dimen>
+    <dimen name="header_item_total_height">100dp</dimen>
+    <dimen name="header_item_title_text_size">20sp</dimen>
+    <dimen name="header_item_total_margin">10dp</dimen>
 </resources>
