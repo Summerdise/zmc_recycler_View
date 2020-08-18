@@ -28,14 +28,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center" />
+                android:gravity="center_vertical"
+                android:paddingStart="@dimen/image_item_title_padding_start"
+                android:textColor="@color/black" />
+
 
             <TextView
                 android:id="@+id/image_recycle_number"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center" />
+                android:gravity="center"
+                android:textColor="@color/black" />
 
         </LinearLayout>
 
@@ -44,7 +48,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:paddingStart="@dimen/image_item_description_padding_start" />
+            android:paddingStart="@dimen/image_item_description_padding_start"
+            android:textColor="@color/black" />
 
     </LinearLayout>
 

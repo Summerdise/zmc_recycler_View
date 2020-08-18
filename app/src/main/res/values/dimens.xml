@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="description_start">30dp</dimen>
+    <dimen name="data_item_description_padding_start">50dp</dimen>
     <dimen name="main_recycler_entry_width">150dp</dimen>
     <dimen name="main_recycler_entry_height">30dp</dimen>
     <dimen name="main_header_recycler_entry_width">150dp</dimen>
@@ -19,5 +19,7 @@
     <dimen name="image_item_image_height">100dp</dimen>
     <dimen name="image_item_image_padding">20dp</dimen>
     <dimen name="image_item_title_height">40dp</dimen>
-    <dimen name="image_item_description_padding_start">30dp</dimen>
+    <dimen name="image_item_description_padding_start">50dp</dimen>
+    <dimen name="data_item_title_padding_start">50dp</dimen>
+    <dimen name="image_item_title_padding_start">50dp</dimen>
 </resources>
