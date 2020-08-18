@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="description_start">30dp</dimen>
+    <dimen name="main_recycler_entry_width">150dp</dimen>
+    <dimen name="main_recycler_entry_height">30dp</dimen>
+    <dimen name="main_header_recycler_entry_width">150dp</dimen>
+    <dimen name="main_header_recycler_entry_height">30dp</dimen>
+    <dimen name="main_image_recycler_entry_width">144dp</dimen>
+    <dimen name="main_image_recycler_entry_height">27dp</dimen>
+</resources>
