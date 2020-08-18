@@ -30,7 +30,7 @@ public class RecyclerActivity extends AppCompatActivity {
     private void initFruits(int size) {
         for (int i = 0; i < size; i++) {
             int number = i + 1;
-            dataList.add(new Data(0, String.format("title%d", number), String.format("desp%d", number), number,null));
+            dataList.add(new Data(0, String.format("Title%d", number), String.format("Description%d", number), number,null));
         }
     }
 }

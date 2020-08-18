@@ -28,7 +28,7 @@ public class ImageRecyclerActivity extends AppCompatActivity {
         dataList.add(new Data(1, "This is header", null, 0,null));
         for (int i = 0; i < size; i++) {
             int number = i + 1;
-            dataList.add(new Data(2, String.format("title%d", number), String.format("desp%d", number),
+            dataList.add(new Data(2, String.format("Title%d", number), String.format("Description%d", number),
                     number,String.format("https://loremflickr.com/180/180?lock=%d",number)));
         }
     }
