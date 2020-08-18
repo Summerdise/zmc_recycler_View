@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/entry"
+        android:id="@+id/recycler_entry"
         android:layout_width="150dp"
         android:layout_height="30dp"
         android:background="#666666"
@@ -17,6 +17,20 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.25" />
+
+    <TextView
+        android:id="@+id/header_recycler_entry"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:background="#666666"
+        android:gravity="center"
+        android:text="@string/header_recyclerview_entry"
+        android:textColor="#ffffff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recycler_entry" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
