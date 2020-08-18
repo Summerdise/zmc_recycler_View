@@ -7,14 +7,25 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class MainActivity extends AppCompatActivity {
 
+    @BindView(R.id.recycler_entry)
+    TextView recyclerViewEntry;
+
+    @BindView(R.id.header_recycler_entry)
+    TextView headerRecyclerViewEntry;
+
+    @BindView(R.id.image_recycler_entry)
+    TextView imageRecyclerViewEntry;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView recyclerViewEntry = findViewById(R.id.recycler_entry);
+        ButterKnife.bind(this);
         recyclerViewEntry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -23,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        TextView headerRecyclerViewEntry = findViewById(R.id.header_recycler_entry);
         headerRecyclerViewEntry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -32,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        TextView imageRecyclerViewEntry = findViewById(R.id.image_recycler_entry);
         imageRecyclerViewEntry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
