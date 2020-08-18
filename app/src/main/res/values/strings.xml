@@ -2,4 +2,5 @@
     <string name="app_name">zmc_recycler_view</string>
     <string name="recyclerview_entry">RecyclerView</string>
     <string name="header_recyclerview_entry">Header RecyclerView</string>
+    <string name="image_recyclerview_entry">Image RecyclerView</string>
 </resources>

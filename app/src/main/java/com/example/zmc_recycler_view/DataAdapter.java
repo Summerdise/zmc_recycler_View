@@ -1,5 +1,6 @@
 package com.example.zmc_recycler_view;
 
+import android.content.Context;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,10 +11,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 public class DataAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private List<Data> mDataList;
+    private Context mContext;
 
     public static class ItemHolder extends RecyclerView.ViewHolder {
         TextView dataTitle;
@@ -22,9 +26,9 @@ public class DataAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         public ItemHolder(View view) {
             super(view);
-            dataTitle = (TextView) view.findViewById(R.id.recycle_title);
-            dataNumber = (TextView) view.findViewById(R.id.recycle_number);
-            dataDescription = (TextView) view.findViewById(R.id.recycle_description);
+            dataTitle = view.findViewById(R.id.recycle_title);
+            dataNumber = view.findViewById(R.id.recycle_number);
+            dataDescription = view.findViewById(R.id.recycle_description);
         }
     }
 
@@ -45,14 +49,19 @@ public class DataAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         public ImageViewHolder(View view) {
             super(view);
-            dataTitle = view.findViewById(R.id.recycle_title);
-            dataNumber = view.findViewById(R.id.recycle_number);
-            dataDescription = view.findViewById(R.id.recycle_description);
-            dataAvatar = view.findViewById(R.id.recycle_image);
+            dataTitle = view.findViewById(R.id.image_recycle_title);
+            dataNumber = view.findViewById(R.id.image_recycle_number);
+            dataDescription = view.findViewById(R.id.image_recycle_description);
+            dataAvatar = view.findViewById(R.id.image_recycle_image);
         }
     }
 
     public DataAdapter(List<Data> dataList) {
+        mDataList = dataList;
+    }
+
+    public DataAdapter(Context context,List<Data> dataList) {
+        mContext= context;
         mDataList = dataList;
     }
 
@@ -63,12 +72,12 @@ public class DataAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         if (viewType == Data.TYPE_ITEM) {
             view = LayoutInflater.from(parent.getContext()).inflate(R.layout.data_item, parent, false);
             return new ItemHolder(view);
-        } else if(viewType == Data.TYPE_HEADER){
+        } else if (viewType == Data.TYPE_HEADER) {
             view = LayoutInflater.from(parent.getContext()).inflate(R.layout.header_item, parent, false);
             return new HeaderViewHolder(view);
         } else {
             view = LayoutInflater.from(parent.getContext()).inflate(R.layout.image_item, parent, false);
-            return new HeaderViewHolder(view);
+            return new ImageViewHolder(view);
         }
     }
 
@@ -93,12 +102,12 @@ public class DataAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         Data data = mDataList.get(position);
         if (data.type == Data.TYPE_HEADER) {
             ((HeaderViewHolder) holder).headerTitle.setText(data.title);
-        } else if(data.type == Data.TYPE_ITEM){
+        } else if (data.type == Data.TYPE_ITEM) {
             ((ItemHolder) holder).dataTitle.setText(data.title);
             ((ItemHolder) holder).dataNumber.setText(String.valueOf(data.number));
             ((ItemHolder) holder).dataDescription.setText(data.description);
-        } else if (2==data.type){
-            ((ImageViewHolder) holder).dataAvatar.setImageURI(Uri.parse(data.avatar));
+        } else if (2 == data.type) {
+            Glide.with(mContext).load(data.avatar).into(((ImageViewHolder) holder).dataAvatar);;
             ((ImageViewHolder) holder).dataTitle.setText(data.title);
             ((ImageViewHolder) holder).dataNumber.setText(String.valueOf(data.number));
             ((ImageViewHolder) holder).dataDescription.setText(data.description);

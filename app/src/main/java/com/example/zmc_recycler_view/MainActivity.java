@@ -31,6 +31,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        TextView imageRecyclerViewEntry = findViewById(R.id.image_recycler_entry);
+        imageRecyclerViewEntry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,ImageRecyclerActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 }
