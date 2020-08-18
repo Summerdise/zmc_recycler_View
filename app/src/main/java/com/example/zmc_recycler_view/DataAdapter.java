@@ -3,6 +3,7 @@ package com.example.zmc_recycler_view;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -24,7 +25,6 @@ public class DataAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             dataNumber = (TextView) view.findViewById(R.id.recycle_number);
             dataDescription = (TextView) view.findViewById(R.id.recycle_description);
         }
-
     }
 
     public static class HeaderViewHolder extends RecyclerView.ViewHolder {
@@ -33,6 +33,20 @@ public class DataAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         public HeaderViewHolder(View view) {
             super(view);
             headerTitle = view.findViewById(R.id.header_title);
+        }
+    }
+    public static class ImageViewHolder extends RecyclerView.ViewHolder {
+        TextView dataTitle;
+        TextView dataNumber;
+        TextView dataDescription;
+        ImageView dataAvatar;
+
+        public ImageViewHolder(View view) {
+            super(view);
+            dataTitle = view.findViewById(R.id.recycle_title);
+            dataNumber = view.findViewById(R.id.recycle_number);
+            dataDescription = view.findViewById(R.id.recycle_description);
+            dataAvatar = view.findViewById(R.id.recycle_image);
         }
     }
 
@@ -69,11 +83,11 @@ public class DataAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         Data data = mDataList.get(position);
         if (data.type == Data.TYPE_HEADER) {
-            ((HeaderViewHolder) holder).headerTitle.setText(data.getTitle());
+            ((HeaderViewHolder) holder).headerTitle.setText(data.title);
         } else {
-            ((ItemHolder) holder).dataTitle.setText(data.getTitle());
-            ((ItemHolder) holder).dataNumber.setText(String.valueOf(data.getNumber()));
-            ((ItemHolder) holder).dataDescription.setText(data.getDescription());
+            ((ItemHolder) holder).dataTitle.setText(data.title);
+            ((ItemHolder) holder).dataNumber.setText(String.valueOf(data.number));
+            ((ItemHolder) holder).dataDescription.setText(data.description);
         }
     }
 
