@@ -3,6 +3,8 @@ package com.example.zmc_recycler_view;
 public class Data {
     public static final int TYPE_ITEM = 0;
     public static final int TYPE_HEADER = 1;
+    public static final int TYPE_IMAGE = 2;
+
 
     public int type;
     public String title;

@@ -83,17 +83,7 @@ public class DataAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override
 
     public int getItemViewType(int position) {
-        if (0 == mDataList.get(position).type) {
-            return Data.TYPE_ITEM;
-        } else if (1 == mDataList.get(position).type) {
-            if (null == mDataList.get(position).avatar) {
-                return Data.TYPE_HEADER;
-            } else {
-                return 2;
-            }
-        } else {
-            return -1;
-        }
+        return mDataList.get(position).type;
     }
 
     @Override

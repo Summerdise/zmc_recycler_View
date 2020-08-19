@@ -25,7 +25,7 @@ public class RecyclerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler);
-        initFruits(15);
+        initItems(15);
         ButterKnife.bind(this);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
@@ -33,7 +33,7 @@ public class RecyclerActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
     }
 
-    private void initFruits(int size) {
+    private void initItems(int size) {
         for (int i = 0; i < size; i++) {
             int number = i + 1;
             dataList.add(new Data(0, String.format("Title%d", number), String.format("Description%d", number), number,null));

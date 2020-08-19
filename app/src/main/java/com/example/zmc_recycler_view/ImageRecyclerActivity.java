@@ -23,14 +23,14 @@ public class ImageRecyclerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_recycler);
-        initFruits(100);
+        initItems(100);
         ButterKnife.bind(this);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         DataAdapter adapter = new DataAdapter(this,dataList);
         recyclerView.setAdapter(adapter);
     }
-    private void initFruits(int size) {
+    private void initItems(int size) {
         dataList.add(new Data(1, "This is header", null, 0,null));
         for (int i = 0; i < size; i++) {
             int number = i + 1;

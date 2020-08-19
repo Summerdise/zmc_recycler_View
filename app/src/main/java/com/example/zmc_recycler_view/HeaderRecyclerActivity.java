@@ -23,14 +23,14 @@ public class HeaderRecyclerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler);
         ButterKnife.bind(this);
-        initFruits(15);
+        initItems(15);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         DataAdapter adapter = new DataAdapter(dataList);
         recyclerView.setAdapter(adapter);
     }
 
-    private void initFruits(int size) {
+    private void initItems(int size) {
         dataList.add(new Data(1, "This is header", null, 0,null));
         for (int i = 0; i < size; i++) {
             int number = i + 1;
